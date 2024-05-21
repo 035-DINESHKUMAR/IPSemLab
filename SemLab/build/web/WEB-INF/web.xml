@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>CheckboxServlet</servlet-name>
+        <servlet-class>CheckboxServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cookiesStored</servlet-name>
+        <servlet-class>cookiesStored</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>age</servlet-name>
+        <servlet-class>age</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckboxServlet</servlet-name>
+        <url-pattern>/CheckboxServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cookiesStored</servlet-name>
+        <url-pattern>/cookiesStored</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>age</servlet-name>
+        <url-pattern>/age</url-pattern>
+    </servlet-mapping>
+</web-app>

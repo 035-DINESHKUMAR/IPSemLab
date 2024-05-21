@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            img{
+                position : absolute;
+                left: 475px;
+                top: 100px;
+                height: 500px;
+                width: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="img.png" alt="Accessories" usemap="#linked"/>
+            <map id="linked">
+                <area shape="rect" coords="94,24,236,137" href="https://en.wikipedia.org/wiki/Tablet#Computing" target="_blank"/>
+                <area shape="rect" coords="4,155,212,259" href="https://en.wikipedia.org/wiki/Keyboard" target="_blank"/>
+                <area shape="circle" coords="155,344,50" href="https://en.wikipedia.org/wiki/Mobile" target="_blank"/>
+            </map>
+        </div>
+    </body>
+</html>

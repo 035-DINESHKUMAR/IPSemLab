@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forecast>
+    <city name="New York">
+        <day>
+            <date>2024-05-18</date>
+            <temperature>22</temperature>
+            <humidity>60</humidity>
+            <description>Sunny</description>
+        </day>
+        <day>
+            <date>2024-05-19</date>
+            <temperature>24</temperature>
+            <humidity>58</humidity>
+            <description>Partly Cloudy</description>
+ =      </day>
+       <day>
+            <date>2024-05-20</date>
+            <temperature>21</temperature>
+            <humidity>65</humidity>
+            <description>Rain</description>
+ </day>
+ <day>
+ <date>2024-05-21</date>
+ <temperature>20</temperature>
+ <humidity>70</humidity>
+ <description>Thunderstorms</description>
+ </day>
+ <day>
+ <date>2024-05-22</date>
+ <temperature>19</temperature>
+ <humidity>72</humidity>
+ <description>Cloudy</description>
+ </day>
+ </city>
+ <city name="Los Angeles">
+ <day>
+ <date>2024-05-18</date>
+ <temperature>25</temperature>
+ <humidity>50</humidity>
+ <description>Sunny</description>
+ </day>
+ <day>
+ <date>2024-05-19</date>
+ <temperature>26</temperature>
+ <humidity>48</humidity>
+ <description>Sunny</description>
+ </day>
+ <day>
+ <date>2024-05-20</date>
+ <temperature>27</temperature>
+ <humidity>45</humidity>
+ <description>Clear</description>
+ </day>
+ <day>
+ <date>2024-05-21</date>
+ <temperature>28</temperature>
+ <humidity>40</humidity>
+ <description>Sunny</description>
+ </day>
+ <day>
+ <date>2024-05-22</date>
+ <temperature>29</temperature>
+ <humidity>38</humidity>
+ <description>Sunny</description>
+ </day>
+ </city>
+</forecast>
+

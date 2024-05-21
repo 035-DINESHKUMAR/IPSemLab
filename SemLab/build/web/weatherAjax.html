@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather AJAX</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #result {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function fetchCity() {
+            const xml = new XMLHttpRequest();
+            xml.open('GET', 'weatherReport.xml', true);
+            xml.onload = function() {
+                if (this.status === 200) {
+                    const responseXML = this.responseXML;
+                    if (!responseXML) {
+                        console.error('No XML received');
+                        document.getElementById('result').innerHTML = 'Error: No XML received';
+                        return;
+                    }
+                    const forecast = responseXML.getElementsByTagName('forecast')[0];
+                    const city = document.getElementById('city').value;
+                    const cities = forecast.getElementsByTagName('city');
+                    let output = '';
+                    Array.from(cities).forEach(castCity => {
+                        if (castCity.getAttribute('name') === city) {
+                            const days = castCity.getElementsByTagName('day');
+                            Array.from(days).forEach(day => {
+                                const date = day.getElementsByTagName('date')[0].textContent;
+                                const temperature = day.getElementsByTagName('temperature')[0].textContent;
+                                const humidity = day.getElementsByTagName('humidity')[0].textContent;
+                                const description = day.getElementsByTagName('description')[0].textContent;
+                                output += `<div>
+                                    <h2>Date: ${date}</h2>
+                                    <p>Temperature: ${temperature}</p>
+                                    <p>Humidity: ${humidity}</p>
+                                    <p>Description: ${description}</p>
+                                </div>`;
+                            });
+                        }
+                    });
+                    document.getElementById('result').innerHTML = output;
+                }
+            };
+            xml.send();
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="fetchCity(); return false;">
+        <label for="city">City: </label>
+        <input type="text" name="city" id="city" />
+        <button type="submit">Show</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>

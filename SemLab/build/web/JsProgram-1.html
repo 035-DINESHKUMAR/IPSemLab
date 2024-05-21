@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Duplicate Elements in an Array</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function checkDuplicate(){
+                const text = document.getElementById("arrayInput").value;
+                let numbers = text.split(" ").map(item => item.trim()).filter(item => item);
+                let seen = new Set();
+                let duplicate = new Set();
+                numbers.forEach((value) => {
+                    if(seen.has(value)){
+                        duplicate.add(value);
+                    }else{
+                        seen.add(value);
+                    }
+                });
+                document.getElementById("result").innerHTML = JSON.stringify(Array.from(duplicate));
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <textarea id="arrayInput" rows="5" cols="30"></textarea><br/><br/>
+            <button onclick="checkDuplicate()">click</button><br/><br/>
+        </div>
+        <div id="result"></div>
+    </body>
+</html>

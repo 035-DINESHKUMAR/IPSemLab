@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Products AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .product{
+                border: 1px solid #ddd;
+                padding: 10px;
+                margin: 10px;
+            }
+            .product img{
+                max-width: 100px;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMEventListener", function(){
+                fetch('productImage.xml')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, 'application/xml');
+                    displayProducts(xml);
+                    document.getElementById('category').addEventListener('change', function(){
+                        displayProducts(xml);
+                    });
+                });
+            });
+            function displayProducts(xml) {
+                const category = document.getElementById('category').value;
+                const products = xml.getElementsByTagName('product');
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+                Array.from(products).forEach(product => {
+                    const productName = product.getElementsByTagName('name')[0].textContent;
+                    const productCategory = product.getElementsByTagName('category')[0].textContent;
+                    const productPrice = product.getElementsByTagName('price')[0].textContent;
+                    const productImage = product.getElementsByTagName('image')[0].textContent;
+                    if (category === 'all' || category === productCategory) {
+                        const productDiv = document.createElement('div');
+                        productDiv.className = 'product';
+                        productDiv.innerHTML = `
+                            <h2>${productName}</h2>
+                            <p>Category: ${productCategory}</p>
+                            <p>Price: $${productPrice}</p>
+                            <img src="${productImage}" alt="${productName}"> `;
+                        productList.appendChild(productDiv);
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Product-List</h1>
+        Filter By Category : 
+        <select id="category" name="category">
+            <option value="all">All</option>
+            <option value="electronice">Electronics</option>
+            <option value="books">Books</option>
+            <option value="clothing">Clothing</option>
+        </select>
+        <div id="product-list"></div>
+    </body>
+</html>

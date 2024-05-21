@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Program-3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function insertHifen(){
+                const text = document.getElementById("number").value;
+                let result = "";
+                let idx = [];
+                let k = 0;
+                for(var i = 1;i < text.length;i++){
+                    if(text[i - 1] % 2 === 0 && text[i] % 2 === 0){
+                        if(i !== text.length - 1)
+                            idx[k++] = i;
+                    }
+                }
+                k = 0;
+                let j = 0;
+                for(var i = 0;i < text.length;i++){
+                    if(idx[k] === i){
+                        result += '-';
+                        result += text[i];
+                        k++;
+                    }
+                    else{
+                        result += text[i];
+                    }
+                }
+                document.getElementById("result").innerHTML = result;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="text" id="number"/><br/><br/>
+            <button onclick="insertHifen()">Insert</button><br/><br/>
+            <div id="result"></div>
+        </div>
+    </body>
+</html>

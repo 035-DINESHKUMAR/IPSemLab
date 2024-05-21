@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <name>AAA</name>
+        <grades>O, A+, A+, A, A, O, O</grades>
+        <gpa>9.0</gpa>
+    </student>
+    <student>
+        <name>BBB</name>
+        <grades>O, B+, C+, B, A, O, O</grades>
+        <gpa>7.23</gpa>
+    </student>
+    <student>
+        <name>CCC</name>
+        <grades>O, C+, C+, C, A+, O, O</grades>
+        <gpa>6.90</gpa>
+    </student>
+    <student>
+        <name>DDD</name>
+        <grades>O, A+, B, B, A, O, O</grades>
+        <gpa>8.23</gpa>
+    </student>
+    <student>
+        <name>EEE</name>
+        <grades>O, A+, A+, B, A, O, O</grades>
+        <gpa>8.89</gpa>
+    </student>
+</students>
+

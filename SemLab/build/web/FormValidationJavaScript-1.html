@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation using JavaScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #ageerr, #emailerr, #nameerr, #majorerr, #stuiderr {
+            color: red;
+        }
+        #correct {
+            color: green;
+        }
+    </style>
+    <script>
+        function validate() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            const stuId = document.getElementById('stuid').value;
+            const major = document.getElementById('major').value;
+
+            let nameerr = "";
+            let ageerr = "";
+            let emailerr = "";
+            let stuiderr = "";
+            let majorerr = "";
+
+            // Name validation
+            if (name === "") {
+                nameerr = "Name is Empty";
+            } else if (/\d/.test(name)) {
+                nameerr = "Name is Invalid";
+            }
+            document.getElementById('nameerr').innerHTML = nameerr;
+
+            // Age validation
+            if (age === "") {
+                ageerr = "Age is Empty";
+            } else if (isNaN(age) || age < 18 || age > 60) {
+                ageerr = "Age is Invalid";
+            }
+            document.getElementById('ageerr').innerHTML = ageerr;
+
+            // Email validation
+            if (email === "") {
+                emailerr = "Email is Empty";
+            } else if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                emailerr = "Email is Invalid";
+            }
+            document.getElementById('emailerr').innerHTML = emailerr;
+
+            // Student ID validation
+            if (stuId === "") {
+                stuiderr = "Student ID is Empty";
+            } else if (!stuId.match(/^[a-zA-Z]+\d+$/)) {
+                stuiderr = "Student ID is Invalid";
+            }
+            document.getElementById('stuiderr').innerHTML = stuiderr;
+
+            // Major validation
+            if (major === "") {
+                majorerr = "Major is Empty";
+            }
+            document.getElementById('majorerr').innerHTML = majorerr;
+
+            // If all fields are valid
+            if (nameerr === "" && ageerr === "" && emailerr === "" && stuiderr === "" && majorerr === "") {
+                document.getElementById('correct').innerHTML = "All Fields are validated successfully";
+            } else {
+                document.getElementById('correct').innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form onsubmit="validate(); return false;">
+            Name : <input type="text" id="name" /><br/><br/>
+            <span id="nameerr"></span><br/><br/>
+            Age : <input type="text" id="age" /><br/><br/>
+            <span id="ageerr"></span><br/><br/>
+            Email : <input type="text" id="email" /><br/><br/>
+            <span id="emailerr"></span><br/><br/>
+            Student Id : <input type="text" id="stuid" /><br/><br/>
+            <span id="stuiderr"></span><br/><br/>
+            Major : 
+            <select id="major">
+                <option value="">--Select a Major--</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="astrophysics">Astrophysics</option>
+            </select><br/><br/>
+            <span id="majorerr"></span><br/><br/>
+            <button>Validate</button><br/><br/>
+            <span id="correct"></span>
+        </form>
+    </div>
+</body>
+</html>

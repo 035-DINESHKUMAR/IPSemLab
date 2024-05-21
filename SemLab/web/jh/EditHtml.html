@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Data</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #name, #dept, #sal, #pos{
+                display: none;
+            }
+        </style>
+        <script>
+            function selectedRadioButton(){
+                const radioButton = document.querySelector('input[name="edit"]:checked');
+                const name = document.getElementById('name');
+                const dept = document.getElementById('dept');
+                const sal = document.getElementById('sal');
+                const pos = document.getElementById('pos');
+
+                // Hide all forms first
+                name.style.display = 'none';
+                dept.style.display = 'none';
+                sal.style.display = 'none';
+                pos.style.display = 'none';
+
+                // Show the selected form
+                if(radioButton.value === 'name'){
+                    name.style.display = 'block';
+                } else if(radioButton.value === 'department'){
+                    dept.style.display = 'block';
+                } else if(radioButton.value === 'salary'){
+                    sal.style.display = 'block';
+                } else if(radioButton.value === 'position'){
+                    pos.style.display = 'block';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="radio" name="edit" value="name" />Name  
+            <input type="radio" name="edit" value="department" />Department
+            <input type="radio" name="edit" value="salary" />Salary
+            <input type="radio" name="edit" value="position" />Position <br/><br/>
+            <button onclick="selectedRadioButton()">Show form</button><br/><br/>
+            <form action="http://localhost:8089/SemLab/jh/editName.jsp" method="get" id="name">
+                Emp id : <input type="text" name="id" required /> 
+                Name : <input type="text" name="name" required />
+                <button>Edit Name</button>
+            </form>
+            <form action="http://localhost:8089/SemLab/jh/editDept.jsp" method="get" id="dept">
+                Emp id : <input type="text" name="id" required /> 
+                Department : <input type="text" name="dept" required />
+                <button>Edit Dept</button>
+            </form>
+            <form action="http://localhost:8089/SemLab/jh/editSal.jsp" method="get" id="sal">
+                Emp id : <input type="text" name="id" required /> 
+                Salary : <input type="text" name="sal" required />
+                <button>Edit Sal</button>
+            </form>
+            <form action="http://localhost:8089/SemLab/jh/editPos.jsp" method="get" id="pos">
+                Emp id : <input type="text" name="id" required /> 
+                Position : <input type="text" name="pos" required />
+                <button>Edit Pos</button>
+            </form>
+        </div>
+    </body>
+</html>

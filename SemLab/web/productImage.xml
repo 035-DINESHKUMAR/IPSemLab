@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <name>Computer</name>
+        <category>Electronics</category>
+        <price>299.99</price>
+    <image>Image/image1.jpeg</image>
+    </product>
+    <product>
+        <name>Nilalgal</name>
+        <category>Books</category>
+        <price>19.99</price>
+        <image>Image/image2.jpeg</image>
+     </product>
+    <product>
+        <name>Levis</name>
+        <category>Clothing</category>
+        <price>49.99</price>
+        <image>Image/image3.jpeg</image>
+    </product>
+    <product>
+        <name>Mobile</name>
+        <category>Electronics</category>
+        <price>499.99</price>
+        <image>Image/image4.jpeg</image>
+    </product>
+</products>
+
